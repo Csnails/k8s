@@ -73,6 +73,8 @@ spec:
             path: /opt/sonarqube/extensions
             type: Directory
           name: dataextensions      
+      nodeSelector:
+          install_sonarqube: true
 
 ---
 apiVersion: v1

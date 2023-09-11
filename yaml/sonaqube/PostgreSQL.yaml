@@ -42,6 +42,8 @@ spec:
             path: /opt/postgresql
             type: Directory
           name: data
+      nodeSelector:
+          install_sonarqube: true
 ---
 apiVersion: v1
 kind: Service
