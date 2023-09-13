@@ -400,15 +400,15 @@ pod/jenkins-74fb9646d8-dlzgt   1/1     Running   0          8h
 
 首页 ---> 右上角用户图标--->我的账户--->安全--->generate tokens--->输入信息（比如Jenkins）--->点击generate--->记录token（7560a1930c2204e138caebc90dc7ffb2fc5046ad）
 
-![image-20230913093724929](C:\Users\liubaoyi\Desktop\软件-崔\K8S\images\image-20230913093724929.png)
+![image-20230913093724929](./images/image-20230913093724929.png)
 
-![image-20230913093619131](C:\Users\liubaoyi\Desktop\软件-崔\K8S\images\image-20230913093619131.png)
+![image-20230913093619131](./images/image-20230913093619131.png)
 
 #### 4.5.1.2 Jenkins配置Sonarqube
 
 配置凭证：Dashboard ---->系统管理  ---->凭证  ----> 系统  ----> 全局凭证  ----> NEW credentials （类型选择：Secret test；Secret：上步骤生成的token）
 
-![image-20230913094921864](C:\Users\liubaoyi\Desktop\软件-崔\K8S\images\image-20230913094921864.png)
+![image-20230913094921864](./images/image-20230913094921864.png)
 
 ```shell
 [root@master1 k8s-jenkins]# kubectl get svc --all-namespaces|grep son
@@ -420,7 +420,7 @@ default         sonarqube                 NodePort    10.0.162.147   <none>     
 
 配置sonarqube：Dashboard ---->系统管理 ---->Configure System ---->SonarQube（name:自定义；server url:http://svc的name.命名空间:端口；选择先去添加的token）
 
-![image-20230913100914171](C:\Users\liubaoyi\Desktop\软件-崔\K8S\images\image-20230913100914171.png)
+![image-20230913100914171](./images/image-20230913100914171.png)
 
 查看sonarqube所在的空间，然后配置格式：svc名称.命名空间:端口
 
@@ -436,7 +436,7 @@ default         sonarqube                 NodePort    10.0.162.147   <none>     
 
 - Jenkins 地址：http://jenkins-service.kube-devops:8080
 
-![image-20230913154919087](C:\Users\liubaoyi\Desktop\软件-崔\K8S\images\image-20230913154919087.png)
+![image-20230913154919087](./images/image-20230913154919087.png)
 
 
 
