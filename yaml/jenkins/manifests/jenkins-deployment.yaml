@@ -14,6 +14,7 @@ spec:
         app: jenkins-server
     spec:
       serviceAccountName: jenkins-admin
+      nodeName: node2
       containers:
         - name: jenkins
           image: jenkins/snail:v1
@@ -69,8 +70,8 @@ spec:
           hostPath:
             path: /usr/bin/kubectl
         - name: jenkins-data
-          persistentVolumeClaim:
-              claimName: jenkins-pvc
+          hostPath:
+            path: /var/jenkins_home
         - name: docker
           hostPath:
             path: /run/docker.sock # 将主机的 docker 映射到容器中
