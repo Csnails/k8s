@@ -258,6 +258,7 @@ configmap/logstash-yml       1      6m51s
 http://192.168.83.18:48135/app/home#/
 
 左上角菜单----->Stack Management----->索引模式----->创建索引模式
+![image-20230907173424938](./images/image-20230907173424938.png)
 
 
 
