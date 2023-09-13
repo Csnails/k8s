@@ -1,0 +1,76 @@
+# 集群名
+clusterName: "cluster-production"
+
+image:
+  repository: "apache/rocketmq"
+  tag: "4.9.4"
+
+broker:
+  size:
+    master: 1
+    replica: 1
+
+  persistence:
+    enabled: true
+    size: 1Gi
+    storageClass: managed-nfs-storage
+
+  # 主节点资源分配
+  master:
+    brokerRole: ASYNC_MASTER
+    jvmMemory: " -Xms1g -Xmx1g -Xmn512m "
+    resources:
+      limits:
+        cpu: 1
+        memory: 1Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
+  
+  # 副节点资源分配
+  replica:
+    jvmMemory: " -Xms1g -Xmx1g -Xmn256m "
+    resources:
+      limits:
+        cpu: 1
+        memory: 1Gi
+      requests:
+        cpu: 50m
+        memory: 1Gi
+
+nameserver:
+  replicaCount: 1
+
+  # 修改 nameserver 容器镜像地址和版本
+  #image:
+  #  repository: "apacherocketmq/rocketmq-nameserver"
+  #  tag: "4.5.0-alpine-operator-0.3.0"
+
+  resources:
+    limits:
+      cpu: 1
+      memory: 1Gi
+    requests:
+      cpu: 50m
+      memory: 1Gi
+  
+  persistence:
+    enabled: true
+    size: 1Gi
+
+dashboard:
+  enabled: true
+  replicaCount: 1
+
+  ingress:
+    enabled: true
+    className: "nginx"
+    hosts:
+      - host: rocketmq.wolfcode.cn
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    #tls:
+    #  - secretName: example-com-tls
+    #    hosts:
+    #      - rocketmq.example.com

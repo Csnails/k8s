@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+        <localRepository>/var/jenkins_home/repository</localRepository>
+        <mirrors>
+                <mirror>
+                        <id>aliyun-central</id>
+                        <name>aliyun maven</name>
+                        <mirrorOf>*</mirrorOf>
+                        <url>https://maven.aliyun.com/repository/central/</url>
+                </mirror>
+                <mirror>
+                        <id>aliyun-public</id>
+                        <name>aliyun maven</name>
+                        <mirrorOf>*</mirrorOf>
+                        <url>https://maven.aliyun.com/repository/public</url>
+                </mirror>
+                <mirror>
+                        <id>aliyun-apache-snapshots</id>
+                        <name>aliyun maven</name>
+                        <mirrorOf>*</mirrorOf>
+                        <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+                </mirror>
+                <mirror>
+                        <id>aliyun-google</id>
+                        <name>aliyun maven</name>
+                        <mirrorOf>*</mirrorOf>
+                        <url>https://maven.aliyun.com/repository/google</url>
+                </mirror>
+        </mirrors>
+        <pluginGroups>
+                <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+        </pluginGroups>
+        <profiles>
+                <profile>
+                        <id>sonar</id>
+                        <activation>
+                                <activeByDefault>true</activeByDefault>
+                        </activation>
+                        <properties>
+                                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                                <sonar.host.url>http://sonarqube:9000</sonar.host.url>
+                        </properties>
+                </profile>
+        </profiles>
+    </settings>
