@@ -76,7 +76,10 @@ prometheus-operator   ClusterIP   None           <none>        8443/TCP         
 
 关键词：`type: NodePort`    `nodePort: 39090`
 
-
+> 说明：如果无法IP+端口访问，请使用以下命令删除多余策略（该项目设置了安全策略导致）
+```shell
+[root@master1 prometheus]# kubectl -n monitoring delete networkpolicies.networking.k8s.io --all
+```
 
 ## 1.5、安装后告警修复[`Prometheus`](http://集群:9090/)
 
