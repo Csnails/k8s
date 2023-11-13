@@ -6,3 +6,9 @@
 + yaml         日常用到的yaml文件
 + doc          部署说明及脚本
 + resource     其他配套资源存放
+
+# 2.常用命令git
+```shell
+git add . && git commit -m "add yaml" && git push origin main
+git pull --rebase origin main
+```
